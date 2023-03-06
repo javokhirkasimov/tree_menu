@@ -1,0 +1,14 @@
+<li>
+    {% if m.has_children %}
+    <a href="{{m.path_url}} ">{{ m.name }}</a>
+    <ul>
+        {% for ch in m.all_children %}
+            {% with m=ch template_name="tree_view_recursive.html" %}
+                {% include "tree_view_recursive.html"%}
+            {% endwith %}
+        {% endfor %}
+    </ul>
+    {% else %}
+    <a>{{ m.name }}</a>
+    {% endif %}
+</li>

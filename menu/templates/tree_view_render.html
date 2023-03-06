@@ -1,0 +1,8 @@
+{% if menu_elements %}
+    <h1>{{ menu_name }}</h1>
+    {% for m in menu_elements %}
+        {% include "tree_view_recursive.html"%}
+    {% endfor %}
+{% else %}
+    <h1>"{{ menu_name }}" Not Found</h1>
+{% endif %}
